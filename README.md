@@ -1,126 +1,52 @@
-# Spare-Vest (Smart-Investment)
-Most Indians find it difficult to invest in global stocks due to high entry barriers, complex processes, and lack of financial awareness. As a result, millions miss out on wealth-building opportunities available in international markets
-#  SpareVest — Micro-Investments Made Effortless with USDT
+# Portfolio-Rebalance
+Small script for rebalancing an investment portfolio by allocating funds to realize specified targets
 
-**Save Small. Grow Big.**
+<br/>
 
-SpareVest is a smart web app that empowers users to automatically invest their spare change or small amounts into crypto-backed funds using USDT (Tether). Inspired by the Jar app’s gold model, SpareVest brings the same simplicity and automation to the world of stablecoin investing.
+## Example Usage
 
-## 🚀 What is SpareVest?
+<br/>
 
-SpareVest is a micro-investment platform that:
-
-- **Rounds up your daily purchases** and invests the spare change in USDT-backed funds.
-- Enables **auto-pilot investing** with daily or weekly auto-debits as low as ₹10.
-- Provides a **real-time dashboard** to track investments, USDT value, and fund growth.
-- Ensures **bank-grade security** and Web3 transparency for all users.
-
-## 🌟 Features
-
-- **Automated Round-Ups:** Invest spare change from every transaction.
-- **USDT-Based Diversification:** Access global DeFi micro-assets and crypto pools.
-- **Fractional Investing:** Start with as little as ₹10.
-- **Goal-Based Portfolios:** Set financial goals and track your progress.
-- **Financial Education:** In-app tips and learning modules.
-- **Secure & Compliant:** KYC, encryption, and regulatory adherence.
-- **User-Friendly Interface:** Simple, intuitive design for all experience levels.
-
-## ⚙️ Tech Stack
-
-| Layer              | Technologies Used                                 |
-| ------------------ | ------------------------------------------------- |
-| **Frontend**       | React.js, Tailwind CSS, Axios, Chart.js           |
-| **Backend**        | Node.js, Express.js, JWT                          |
-| **Database**       | MongoDB (Atlas), Firebase (push notifications)    |
-| **Crypto Layer**   | USDT (Tron/Polygon), Metamask Integration         |
-| **Wallet Service** | Web3.js / Ethers.js, Coinbase/Trust integration   |
-| **Security**       | bcrypt, OTP Auth, reCAPTCHA v3, Cloudflare        |
-| **Hosting**        | Vercel (frontend), Render (backend API)           |
-
-## 🔐 Security & Compliance
-
-- **KYC Verification:** Aadhaar/Phone OTP for compliance
-- **256-bit Encryption:** All user and wallet data
-- **Multi-Factor Authentication (MFA):** On sign-in
-- **Cold Wallet Options:** For large balances
-- **AML & Wallet Screening:** To avoid blacklisted crypto
-- **Transaction Signing & Role-Based Access Control**
-
-> *Note: SpareVest does not hold custody of user funds. All wallet connections are secure and decentralized.*
-
-## 💵 Revenue Model
-
-1. **Micro Transaction Fees:** Small fee (₹0.50–₹2) per USDT transaction.
-2. **Yield Sharing from Partner Pools:** Collaborate with verified DeFi protocols and share yields from pooled funds.
-3. **Premium Analytics & Smart Invest Plans:** Subscriptions for curated USDT portfolios, investment bots, or auto-rebalancing.
-4. **Crypto to Fiat Conversion Charges:** Small fee for INR withdrawals or UPI wallet transfers.
-5. **B2B Licensing:** White-label our round-up & USDT micro-investment system for other fintechs.
-
-## 📲 Sample User Flow
-
+Rebalance the portfolio summarized by `example_funds.csv` by adding $1000:
 ```
-🛒 User buys coffee for ₹93 → App rounds up to ₹100
-💰 ₹7 is auto-invested into a USDT pool (using user's linked wallet)
-📈 User tracks USDT balance and fund performance in dashboard
-🔁 Weekly spare-change investments continue passively
+>> python3 rebalance.py example_portfolio.csv 1000
+Current allocation vs Targets...
+             Current_Allocation  Target_Allocation  Difference
+Fund                                                          
+InvestmentA               45.45               50.0       -4.55
+InvestmentB               18.18               20.0       -1.82
+InvestmentC               36.36               30.0        6.36
+
+Dollars to add to reach target allocation...
+             Dollars_to_Add  Allocation  Target_Allocation  Difference
+Fund                                                                  
+InvestmentA           525.0        52.5               50.0         2.5
+InvestmentB           210.0        21.0               20.0         1.0
+InvestmentC           265.0        26.5               30.0        -3.5
 ```
 
-## 📁 Folder Structure
+If the dollar amount to be added is not enough for an additive (positive) contribution to each fund, no contribution is possible:
 
 ```
-sparevest/
-│
-├── client/              # Frontend - React + Tailwind
-│   ├── components/      # UI Widgets, Chart Visuals
-│   └── pages/           # Dashboard, Wallet Connect, Settings
-│
-├── server/              # Node.js Backend API
-│   ├── routes/          # /invest, /wallet, /kyc
-│   └── services/        # Crypto integration & automation logic
-│
-├── scripts/             # Roundup Engine, Daily Automation
-├── docs/                # API Docs, Compliance PDFs
-└── README.md
+>> python3 rebalance.py example_portfolio.csv 100
+Must add more money for strictly additive rebalance
 ```
 
-## 📦 Getting Started
+Negative contributions can be computed by passing the `--allow_negative` flag:
 
-```bash
-# Clone the repository
-git clone https://github.com/your-org/sparevest.git
-cd sparevest
-
-# Install dependencies
-cd client && npm install
-cd ../server && npm install
-
-# Run locally
-npm run dev
 ```
+>> python3 rebalance.py --allow_negative example_portfolio.csv 100
+Current allocation vs Targets...
+             Current_Allocation  Target_Allocation  Difference
+Fund                                                          
+InvestmentA               45.45               50.0       -4.55
+InvestmentB               18.18               20.0       -1.82
+InvestmentC               36.36               30.0        6.36
 
-## 🎯 Roadmap
-
-- [x] Web Wallet Integration
-- [x] USDT Round-Up Engine
-- [x] INR to USDT Conversion via APIs
-- [ ] Launch Android/iOS App
-- [ ] Smart Investment Bots
-- [ ] DeFi Partnerships (Polygon, Avalanche)
-
-## 🤝 Contributing
-
-We welcome developers, crypto thinkers, and fintech minds to contribute!  
-Check `CONTRIBUTING.md` for guidelines.
-
-## 📫 Contact
-
-- **Website:** www.sparevest.in
-- **Email:** support@sparevest.in
-- **Telegram:** @SpareVestApp
-- **LinkedIn:** SpareVest Technologies
-
-## 📃 License
-
-MIT License © 2025 SpareVest Team
-
-*SpareVest – Small Change, Global Impact.*
+Dollars to add to reach target allocation...
+             Dollars_to_Add  Allocation  Target_Allocation  Difference
+Fund                                                                  
+InvestmentA            75.0        75.0               50.0        25.0
+InvestmentB            30.0        30.0               20.0        10.0
+InvestmentC            -5.0        -5.0               30.0       -35.0
+```
