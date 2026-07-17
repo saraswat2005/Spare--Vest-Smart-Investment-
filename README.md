@@ -103,7 +103,7 @@ npm run dev
 - [x] INR to USDT Conversion via APIs
 - [ ] Launch Android/iOS App
 - [ ] Smart Investment Bots
-- [ ] DeFi Partnerships (Polygon, Avalanche )
+- [ ] DeFi Partnerships (Polygon, Avalanche)
 
 ## 🤝 Contributing
 
