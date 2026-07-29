@@ -8,7 +8,7 @@ SpareVest is a smart web app that empowers users to automatically invest their s
 
 SpareVest is a micro-investment platform that:
 
-- **Rounds up your daily purchases** and invests the spare change in USDT-backed funds
+- **Rounds up your daily purchases** and invests the spare change in USDT-backed funds.
 - Enables **auto-pilot investing** with daily or weekly auto-debits as low as ₹10.
 - Provides a **real-time dashboard** to track investments, USDT value, and fund growth.
 - Ensures **bank-grade security** and Web3 transparency for all users.
