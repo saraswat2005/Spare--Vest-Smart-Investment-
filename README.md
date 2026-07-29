@@ -21,7 +21,7 @@ SpareVest is a micro-investment platform that:
 - **Goal-Based Portfolios:** Set financial goals and track your progress.
 - **Financial Education:** In-app tips and learning modules.
 - **Secure & Compliant:** KYC, encryption, and regulatory adherence.
-- **User-Friendly Interface:** Simple, intuitive design for all experience levels.
+- **User-Friendly Interface:** Simple, intuitive Design for all experience levels.
 
 ## ⚙️ Tech Stack
 
