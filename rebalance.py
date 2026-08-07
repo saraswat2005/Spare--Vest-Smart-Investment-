@@ -10,7 +10,7 @@ import pandas as pd
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        'portfolio_csv'
+        'portfolio_csv',
         help='Path to csv containing portfolio information',
     )
     parser.add_argument(
