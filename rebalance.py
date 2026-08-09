@@ -4,7 +4,7 @@ import argparse
 import sys
 
 import numpy as np
-import pandas as p
+import pandas as pd
 
 
 def parse_args() -> argparse.Namespace:
