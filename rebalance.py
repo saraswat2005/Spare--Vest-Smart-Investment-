@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 
-def parse_args() -> argparse.Namespace
+def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         'portfolio_csv',
