@@ -6,7 +6,7 @@ import pandas as pd
 
 NEW_BALANCE_COLUMN_MAP = {
     'Symbol': 'Fund',
-    'Total Value': 'Balance'
+    'Total Value': 'Balance',
 }
 
 
